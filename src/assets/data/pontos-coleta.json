@@ -1,0 +1,22 @@
+[
+  {
+    "nome": "Ecoponto Central",
+    "endereco": "Rua das Flores, 123",
+    "distancia": "0.8 km"
+  },
+  {
+    "nome": "Centro de Reciclagem Norte",
+    "endereco": "Av. Principal, 456",
+    "distancia": "1.2 km"
+  },
+  {
+    "nome": "Ponto Verde Sul",
+    "endereco": "Rua do Meio, 789",
+    "distancia": "2.1 km"
+  },
+  {
+    "nome": "Coleta Sustentável",
+    "endereco": "Praça da Árvore, 321",
+    "distancia": "3.5 km"
+  }
+]

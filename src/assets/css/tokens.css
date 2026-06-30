@@ -1,0 +1,120 @@
+/* =============================================================
+   EcoDescarte — Design Tokens (identidade visual compartilhada)
+   -------------------------------------------------------------
+   Este arquivo centraliza a identidade visual de TODO o sistema:
+   paleta de cores, tipografia, raios, sombras e espaçamentos.
+
+   Tanto o Dashboard do Administrador Master (index.html) quanto o
+   Painel de Aprovação de Pontos (aprovacoes.html) importam este
+   arquivo ANTES do seu CSS específico, garantindo que ambas as
+   telas compartilhem exatamente a mesma linguagem visual.
+
+   Paleta: verdes (primário/marca), azul-marinho (tipografia/títulos),
+   areia/branco (fundos) e cores de estado (âmbar, vermelho).
+   Tipografia: Fraunces (display) + Inter Tight (corpo).
+   ============================================================= */
+
+:root {
+  /* ---------- Cores principais ---------- */
+  --green-900: #0f3d2e;   /* verde floresta profundo (texto/realce forte) */
+  --green-700: #1f6f4a;   /* verde primário (ações) */
+  --green-500: #3aa372;   /* verde marca */
+  --green-300: #a8d8bf;   /* verde claro */
+  --green-50:  #ecf6f0;   /* fundo suave */
+
+  --navy-900:  #0b2545;   /* azul-marinho – títulos */
+  --navy-700:  #1c3d63;
+  --navy-500:  #41608a;
+
+  --sand-50:   #fafaf7;   /* fundo geral */
+  --sand-100:  #f3f1ea;
+  --white:     #ffffff;
+
+  --gray-200:  #e5e7eb;
+  --gray-300:  #d1d5db;
+  --gray-500:  #6b7280;
+  --gray-700:  #374151;
+  --gray-900:  #111827;
+
+  /* ---------- Cores de estado / acento ---------- */
+  --amber-500: #d68a0c;   /* aguardando / pendente */
+  --amber-50:  #fdf3df;
+  --green-status-50: #dff3e6;
+  --red-600:   #b42318;   /* inativo / recusado */
+  --red-50:    #fde7e3;
+  --info-600:  #1c3d63;   /* acento informativo (alinhado ao navy) */
+  --violet-600:#5b3b8c;   /* acento secundário */
+
+  /* ---------- Raios & sombras ---------- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 1px 2px rgba(15, 61, 46, 0.06);
+  --shadow-md: 0 4px 14px rgba(15, 61, 46, 0.08);
+  --shadow-lg: 0 18px 40px rgba(15, 61, 46, 0.16);
+
+  /* ---------- Tipografia ---------- */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Inter Tight', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* ---------- Layout ---------- */
+  --container: 1200px;
+  --sidebar-w: 260px;
+
+  /* =============================================================
+     Aliases de compatibilidade
+     -------------------------------------------------------------
+     O Dashboard foi desenvolvido com nomes de variáveis próprios.
+     Em vez de reescrever todas as regras, mapeamos esses nomes
+     para os tokens canônicos acima — assim o Dashboard passa a
+     usar a MESMA identidade visual das demais telas.
+     ============================================================= */
+  --verde-900: var(--green-900);
+  --verde-700: var(--green-700);
+  --verde-500: var(--green-500);
+  --verde-300: var(--green-300);
+  --verde-100: var(--green-50);
+  --verde-50:  var(--green-50);
+
+  --azul:     var(--info-600);
+  --laranja:  var(--amber-500);
+  --vermelho: var(--red-600);
+  --roxo:     var(--violet-600);
+  --amarelo:  var(--green-500);
+
+  --cinza-900: var(--navy-900);
+  --cinza-700: var(--gray-700);
+  --cinza-500: var(--gray-500);
+  --cinza-300: var(--gray-300);
+  --cinza-200: var(--gray-200);
+  --cinza-100: var(--sand-100);
+  --cinza-50:  var(--sand-50);
+  --branco:    var(--white);
+
+  --sombra:   var(--shadow-sm);
+  --sombra-2: var(--shadow-md);
+  --raio:     var(--radius-sm);
+}
+
+/* ---------- Reset base compartilhado ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Acessibilidade: foco visível e consistente em toda a aplicação */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--green-500);
+  outline-offset: 2px;
+}

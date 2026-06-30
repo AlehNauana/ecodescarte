@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoDescarte — Auditoria, Logs e Relatórios</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/eco-nav.css" />
+  <link rel="stylesheet" href="assets/css/auditoria.css" />
+</head>
+<body>
+  <nav class="eco-topnav" aria-label="Navegação principal">
+    <div class="eco-topnav__inner">
+      <a class="eco-topnav__brand" href="index.html"><span class="eco-topnav__logo">♻</span> EcoDescarte</a>
+      <button class="eco-topnav__toggle" aria-label="Abrir ou fechar menu" onclick="this.parentElement.querySelector('.eco-topnav__links').classList.toggle('is-open')">☰</button>
+      <div class="eco-topnav__links">
+        <span class="eco-topnav__group">Usuário</span>
+        <a href="perfil-usuario.html">Perfil</a>
+        <a href="formulario-descarte.html">Descartar</a>
+        <a href="formulario-sugestao.html">Sugerir ponto</a>
+        <a href="pontos-coleta.html">Pontos de coleta</a>
+        <span class="eco-topnav__group">Administração</span>
+        <a href="index.html">Dashboard</a>
+        <a href="aprovacoes.html">Aprovações</a>
+        <a href="gestao-usuarios.html">Usuários</a>
+        <a href="gestao-administradores.html">Administradores</a>
+        <a href="perfil-moderador.html">Perfil moderador</a>
+        <a href="auditoria.html" class="is-active" aria-current="page">Auditoria</a>
+      </div>
+    </div>
+  </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <i class="bi bi-leaf text-success me-2"></i>
+          <strong>EcoDescarte</strong>
+        </a>
+        <span class="navbar-text ms-auto text-white">
+          Admin Master <span class="badge bg-success ms-1">AM</span>
+        </span>
+      </div>
+    </nav>
+
+    <div class="bg-white border-bottom shadow-sm mb-4">
+      <div class="container-fluid">
+        <ul class="nav p-2">
+          <li class="nav-item">
+            <a class="nav-link text-muted" href="index.html">Dashboard Master</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-muted" href="aprovacoes.html">Moderação</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-muted" href="gestao-usuarios.html">Gestão de Usuários</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active bg-dark text-white rounded" href="auditoria.html"
+              >Auditoria & Relatórios</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container-fluid px-4">
+      <div class="mb-4">
+        <h2>Auditoria, Logs e Relatórios</h2>
+        <p class="text-muted">
+          Monitore atividades da plataforma e gere relatórios ambientais
+        </p>
+      </div>
+
+      <ul class="nav nav-tabs mb-4 border-0" id="AbasAbstratas" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active me-2 border btn btn-light"
+            id="aba-logs-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#aba-logs"
+            type="button"
+            role="tab"
+          >
+            <i class="bi bi-journal-text me-1"></i> Logs de Auditoria
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link border btn btn-light"
+            id="aba-relatorios-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#aba-relatorios"
+            type="button"
+            role="tab"
+          >
+            <i class="bi bi-file-earmark-bar-graph me-1"></i> Relatórios
+            Ambientais
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="conteudoAbas">
+        <div class="tab-pane fade show active" id="aba-logs" role="tabpanel">
+          <div class="card p-4 shadow-sm mb-4">
+            <div
+              class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2"
+            >
+              <div>
+                <h5>Logs de Auditoria</h5>
+                <p class="text-muted small m-0">
+                  Histórico de todas as ações realizadas na plataforma
+                </p>
+              </div>
+              <button
+                class="btn btn-dark btn-sm"
+                onclick="exportarMensagem('Logs')"
+              >
+                <i class="bi bi-download me-1"></i> Exportar Logs
+              </button>
+            </div>
+
+            <div class="row g-2 mb-3">
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  id="campo-busca"
+                  class="form-control form-control-sm"
+                  placeholder="Buscar por ação, usuário ou alvo..."
+                  oninput="filtrarLogs()"
+                />
+              </div>
+              <div class="col-md-3">
+                <select class="form-select form-select-sm">
+                  <option>Todas Categorias</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <select class="form-select form-select-sm">
+                  <option>Todos Status</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-hover align-middle border text-nowrap">
+                <thead class="table-light">
+                  <tr>
+                    <th>Data/Hora</th>
+                    <th>Usuário</th>
+                    <th>Ação</th>
+                    <th>Categoria</th>
+                    <th>Status</th>
+                    <th>Detalhes</th>
+                  </tr>
+                </thead>
+                <tbody id="tabela-logs-corpo"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-md-3">
+              <div class="card p-3 shadow-sm card-resumo">
+                <div class="text-muted small">Total de Ações</div>
+                <h3 id="total-acoes" class="m-0">0</h3>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card p-3 shadow-sm card-resumo card-sucesso">
+                <div class="text-muted small">Sucessos</div>
+                <h3 id="total-sucessos" class="m-0 text-success">0</h3>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card p-3 shadow-sm card-resumo card-aviso">
+                <div class="text-muted small">Avisos</div>
+                <h3 id="total-avisos" class="m-0 text-warning">0</h3>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card p-3 shadow-sm card-resumo card-erro">
+                <div class="text-muted small">Erros</div>
+                <h3 id="total-erros" class="m-0 text-danger">0</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="aba-relatorios" role="tabpanel">
+          <div class="card p-4 shadow-sm mb-4">
+            <h5>Relatórios Ambientais</h5>
+            <p class="text-muted small mb-4">
+              Impacto ambiental da plataforma e métricas de sustentabilidade
+            </p>
+
+            <div id="lista-relatorios" class="d-flex flex-column gap-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    
+  
+  <footer class="eco-footer">EcoDescarte © 2026 — Trabalho Interdisciplinar PUC Minas — Sistemas de Informação</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/auditoria.js"></script>
+</body>
+</html>

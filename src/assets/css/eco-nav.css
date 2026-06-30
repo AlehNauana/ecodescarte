@@ -1,0 +1,138 @@
+/* =============================================================
+   EcoDescarte — Barra de navegação compartilhada (eco-nav.css)
+   -------------------------------------------------------------
+   Barra de navegação única, presente em todas as telas integradas,
+   garantindo que o usuário consiga circular por toda a aplicação.
+   Usa os tokens de cor/tipografia definidos em tokens.css.
+   ============================================================= */
+
+.eco-topnav {
+  background: var(--green-900);
+  color: var(--white);
+  font-family: var(--font-body);
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.eco-topnav__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 60px;
+  flex-wrap: wrap;
+}
+
+.eco-topnav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--white);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.eco-topnav__logo {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--green-500);
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.eco-topnav__toggle {
+  margin-left: auto;
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: var(--white);
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.eco-topnav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.eco-topnav__group {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--green-300);
+  padding: 0 6px 0 14px;
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  margin-left: 6px;
+}
+
+.eco-topnav__group:first-of-type {
+  border-left: 0;
+  margin-left: 0;
+  padding-left: 6px;
+}
+
+.eco-topnav__links a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 7px 11px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.eco-topnav__links a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+.eco-topnav__links a.is-active,
+.eco-topnav__links a[aria-current="page"] {
+  background: var(--green-500);
+  color: var(--white);
+}
+
+/* Rodapé padrão das telas integradas */
+.eco-footer {
+  text-align: center;
+  color: var(--gray-500);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  padding: 28px 16px;
+}
+
+@media (max-width: 860px) {
+  .eco-topnav__toggle { display: inline-block; }
+  .eco-topnav__links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 0 12px;
+    gap: 2px;
+  }
+  .eco-topnav__links.is-open { display: flex; }
+  .eco-topnav__group {
+    border-left: 0;
+    margin: 8px 0 2px;
+    padding-left: 6px;
+  }
+  .eco-topnav__links a { width: 100%; }
+}
