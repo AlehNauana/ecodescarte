@@ -1,0 +1,162 @@
+body {
+    background-color: #f5f7fa;
+    padding: 40px;
+    font-family: "Lato", sans-serif;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    background: #198754;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.titulo {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #212529;
+}
+
+.subtitulo {
+    font-size: 1.1rem;
+    color: #6c757d;
+    max-width: 700px;
+}
+
+.card-custom {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    height: 100%;
+}
+
+.perfil-img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #198754;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nome {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #212529;
+}
+
+.info-box {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.info-box span {
+    display: block;
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.info-box strong {
+    font-size: 1rem;
+    color: #212529;
+}
+
+.btn-secondary-custom {
+    border-radius: 12px;
+    padding: 12px;
+}
+
+#TelaHistoricoModeracao {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.atividade-card {
+    border: 1px solid #e9ecef;
+    border-radius: 15px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.atividade-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
+.atividade-titulo {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.atividade-info {
+    color: #6c757d;
+    font-size: .95rem;
+}
+
+.badge-aprovado {
+    background: #d1e7dd;
+    color: #0f5132;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.badge-recusado {
+    background: #f8d7da;
+    color: #842029;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.badge-pendente {
+    background: #fff3cd;
+    color: #664d03;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+@media (max-width: 991px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .titulo {
+        font-size: 2rem;
+    }
+
+    .card-custom {
+        padding: 20px;
+    }
+}
+
+/* ===== EcoDescarte — ajustes de integração (navegação compartilhada) ===== */
+html, body { min-height: 100%; }
+body {
+  display: block !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+}
+body > .container,
+body > .perfil-container,
+body > .container-admin {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 32px !important;
+}

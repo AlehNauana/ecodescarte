@@ -1,0 +1,65 @@
+.nav-link.active {
+    background-color: #0d6efd;
+    border-radius: 5px;
+}
+
+.badge-status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.badge-Ativo {
+    background-color: #28a745;
+    color: white;
+}
+
+.badge-Suspenso {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.badge-Banido {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-gerenciar {
+    padding: 2px 8px;
+    font-size: 12px;
+}
+
+.table-responsive {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.table th {
+    position: sticky;
+    top: 0;
+    background-color: #212529;
+    z-index: 10;
+}
+
+.usuario-suspenso {
+    background-color: #fff3cd !important;
+}
+
+.usuario-banido {
+    background-color: #f8d7da !important;
+}
+
+/* ===== EcoDescarte — ajustes de integração (navegação compartilhada) ===== */
+html, body { min-height: 100%; }
+body {
+  display: block !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+}
+body > .container,
+body > .perfil-container,
+body > .container-admin {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 32px !important;
+}

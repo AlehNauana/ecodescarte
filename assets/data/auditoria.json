@@ -1,0 +1,92 @@
+{
+  "logs": [
+    {
+      "id": "1",
+      "dataHora": "2026-06-01 14:32:15",
+      "usuario": "Admin Master",
+      "acao": "Aprovação de ponto de coleta",
+      "alvo": "EcoPonto Centro",
+      "categoria": "Ponto de Coleta",
+      "status": "Sucesso",
+      "detalhes": "Ponto de coleta aprovado e publicado na plataforma"
+    },
+    {
+      "id": "2",
+      "dataHora": "2026-06-01 13:45:22",
+      "usuario": "Carlos Moderador",
+      "acao": "Recusa de ponto de coleta",
+      "alvo": "Coleta XYZ",
+      "categoria": "Ponto de Coleta",
+      "status": "Aviso",
+      "detalhes": "Ponto recusado: Informações incompletas sobre horário de funcionamento"
+    },
+    {
+      "id": "3",
+      "dataHora": "2026-06-01 12:18:40",
+      "usuario": "Admin Master",
+      "acao": "Suspensão de usuário",
+      "alvo": "Ana Oliveira",
+      "categoria": "Usuário",
+      "status": "Aviso",
+      "detalhes": "Usuário suspenso por submissão de informações falsas"
+    },
+    {
+      "id": "4",
+      "dataHora": "2026-06-01 11:05:33",
+      "usuario": "Sistema",
+      "acao": "Geração de relatório ambiental",
+      "alvo": "Relatório Maio 2026",
+      "categoria": "Relatório",
+      "status": "Sucesso",
+      "detalhes": "Relatório mensal gerado automaticamente"
+    },
+    {
+      "id": "5",
+      "dataHora": "2026-06-01 10:22:18",
+      "usuario": "Lucia Ferreira",
+      "acao": "Alteração de função",
+      "alvo": "João Silva",
+      "categoria": "Usuário",
+      "status": "Sucesso",
+      "detalhes": "Usuário promovido a moderador"
+    },
+    {
+      "id": "6",
+      "dataHora": "2026-06-01 09:45:55",
+      "usuario": "Admin Master",
+      "acao": "Banimento de usuário",
+      "alvo": "Roberto Alves",
+      "categoria": "Usuário",
+      "status": "Erro",
+      "detalhes": "Usuário banido por violação dos termos de uso"
+    }
+  ],
+  "relatorios_ambientais": [
+    {
+      "id": "rep_1",
+      "mesReferencia": "Maio 2026",
+      "dataGeracao": "31/05/2026",
+      "residuosTotaisKg": "45.231",
+      "recicladosKg": "28.650",
+      "organicosKg": "12.340",
+      "taxaReciclagemPct": "63.3%",
+      "taxaOrganicaPct": "27.3%",
+      "pontosAtivos": "1.247",
+      "novosUsuarios": "432",
+      "co2EconomizadoKg": "8.765"
+    },
+    {
+      "id": "rep_2",
+      "mesReferencia": "Abril 2026",
+      "dataGeracao": "30/04/2026",
+      "residuosTotaisKg": "42.180",
+      "recicladosKg": "26.890",
+      "organicosKg": "11.230",
+      "taxaReciclagemPct": "63.8%",
+      "taxaOrganicaPct": "26.6%",
+      "pontosAtivos": "1.198",
+      "novosUsuarios": "387",
+      "co2EconomizadoKg": "8.234"
+    }
+  ]
+}

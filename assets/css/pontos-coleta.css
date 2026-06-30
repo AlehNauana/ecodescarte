@@ -1,0 +1,41 @@
+body {
+  background-color: #f4f4f4;
+}
+
+.card-ponto {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+.btn-chegar {
+  background-color: #212529;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+}
+
+.btn-chegar:hover {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+
+/* ===== EcoDescarte — ajustes de integração (navegação compartilhada) ===== */
+html, body { min-height: 100%; }
+body {
+  display: block !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+}
+body > .container,
+body > .perfil-container,
+body > .container-admin {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 32px !important;
+}

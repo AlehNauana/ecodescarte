@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoDescarte — Formulário de Descarte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/eco-nav.css" />
+  <link rel="stylesheet" href="assets/css/formulario-descarte.css" />
+</head>
+<body>
+  <nav class="eco-topnav" aria-label="Navegação principal">
+    <div class="eco-topnav__inner">
+      <a class="eco-topnav__brand" href="index.html"><span class="eco-topnav__logo">♻</span> EcoDescarte</a>
+      <button class="eco-topnav__toggle" aria-label="Abrir ou fechar menu" onclick="this.parentElement.querySelector('.eco-topnav__links').classList.toggle('is-open')">☰</button>
+      <div class="eco-topnav__links">
+        <span class="eco-topnav__group">Usuário</span>
+        <a href="perfil-usuario.html">Perfil</a>
+        <a href="formulario-descarte.html" class="is-active" aria-current="page">Descartar</a>
+        <a href="formulario-sugestao.html">Sugerir ponto</a>
+        <a href="pontos-coleta.html">Pontos de coleta</a>
+        <span class="eco-topnav__group">Administração</span>
+        <a href="index.html">Dashboard</a>
+        <a href="aprovacoes.html">Aprovações</a>
+        <a href="gestao-usuarios.html">Usuários</a>
+        <a href="gestao-administradores.html">Administradores</a>
+        <a href="perfil-moderador.html">Perfil moderador</a>
+        <a href="auditoria.html">Auditoria</a>
+      </div>
+    </div>
+  </nav>
+
+    <div id="screen-form" class="container">
+      <div class="user-session-info">
+        <span>Olá, <strong id="session-user-name">Usuário</strong></span>
+      </div>
+
+      <h1>Formulário de Descarte</h1>
+      <p class="subtitle">Informe os resíduos que deseja descartar</p>
+
+      <div id="form-error" class="alert hidden">
+        Por favor, selecione um tipo de resíduo e preencha o endereço/CEP!
+      </div>
+
+      <div class="form-group">
+        <div class="mb-25">
+          <label>Tipo de Resíduo</label>
+          <div class="residue-grid">
+            <button
+              class="residue-btn"
+              onclick="selectResidue(this, 'Orgânico')"
+            >
+              Orgânico
+            </button>
+            <button class="residue-btn" onclick="selectResidue(this, 'Metal')">
+              Metal
+            </button>
+            <button
+              class="residue-btn"
+              onclick="selectResidue(this, 'Seringa')"
+            >
+              Seringa
+            </button>
+            <button
+              class="residue-btn"
+              onclick="selectResidue(this, 'Eletrônico')"
+            >
+              Eletrônico
+            </button>
+            <button
+              class="residue-btn"
+              onclick="selectResidue(this, 'Químico')"
+            >
+              Químico
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label for="user-address">Endereço / CEP</label>
+          <input
+            type="text"
+            id="user-address"
+            class="input-text"
+            placeholder="Digite seu endereço ou CEP"
+          />
+        </div>
+      </div>
+
+      <button class="btn-submit" onclick="handleSearchPoints()">
+        Buscar Pontos de Coleta
+      </button>
+      <span
+        class="link-navigation"
+        onclick="window.location.href='index.html'"
+        >Voltar para início</span
+      >
+    </div>
+
+    <div id="screen-results" class="container hidden">
+      <h1>Pontos de Coleta Encontrados</h1>
+      <p class="subtitle">
+        Locais próximos para o descarte de
+        <strong id="result-residue-type">...</strong>
+      </p>
+
+      <div class="results-box">
+        <div class="point-item">
+          <h3>Ecoponto Central EccoDescarte</h3>
+          <p>
+            <strong>Endereço de Busca solicitado:</strong>
+            <span id="result-user-address">...</span>
+          </p>
+          <p class="status-green">● Disponível para recebimento imediato</p>
+        </div>
+        <div class="point-item">
+          <h3>Posto de Coleta Bairro Verde</h3>
+          <p>Funcionamento: Segunda a Sexta, das 08h às 17h</p>
+        </div>
+      </div>
+
+      <button class="btn-submit" onclick="switchScreen('screen-form')">
+        Nova Busca
+      </button>
+    </div>
+
+    
+  
+  <footer class="eco-footer">EcoDescarte © 2026 — Trabalho Interdisciplinar PUC Minas — Sistemas de Informação</footer>
+
+  <script src="assets/js/formulario-descarte.js"></script>
+</body>
+</html>
